@@ -28,8 +28,11 @@ def analyze_file(file_path):
 
     for finding in findings:
         print(f"[{finding['severity']}] {finding['cwe']}")
-        print(finding["name"])
-        print(finding["description"])
+        print(f"Name       : {finding['name']}")
+        print(f"Line       : {finding['line']}")
+        print(f"Confidence : {finding['confidence']}")
+        print(f"Evidence   : {finding['evidence']}")
+        print(f"Description: {finding['description']}")
         print("-" * 40)
 
 
