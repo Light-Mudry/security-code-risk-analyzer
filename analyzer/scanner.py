@@ -1,5 +1,5 @@
 from analyzer.rules import RULES
-
+from analyzer.context import assess_confidence
 
 def scan_code(code):
     findings = []
@@ -16,7 +16,7 @@ def scan_code(code):
                     "name": rule["name"],
                     "cwe": rule["cwe"],
                     "severity": rule["severity"],
-                    "confidence": "HIGH",
+                    "confidence": assess_confidence(rule["pattern"], line),
                     "line": line_number,
                     "evidence": line.strip(),
                     "description": rule["description"]
